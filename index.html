@@ -1,0 +1,77 @@
+<html>
+
+<head>
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quinta Serie - Práctico 6 · Ejercicio 06</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h2> Ejercicio 06: Clasificación en cinco categorías</h2>
+
+    <div class="instrucciones">
+      <h3> Instrucciones</h3>
+      <p>Este ejercicio clasifica un valor en cinco categorías:</p>
+      <ul>
+        <li>Antes de los rangos</li>
+        <li>Primer rango (100–300)</li>
+        <li>Entre los rangos (no válido)</li>
+        <li>Segundo rango (500–800)</li>
+        <li>Supera los rangos</li>
+      </ul>
+    </div>
+
+
+    <div id="mensaje" class="resultado" aria-live="polite">
+      Haz clic en "Ejecutar" para clasificar el valor.
+    </div>
+
+    
+    <button id="btnEjecutar" class="btn" type="button">¡Ejecutar Ejercicio!</button>
+
+    <footer>Curso de JavaScript · Enseñanza Media | Ejercicio 06</footer>
+  </div>
+
+ 
+  <script>
+    function clasificarValor() {
+      let valor = 800; 
+      let mensaje = document.getElementById('mensaje');
+
+ 
+      mensaje.className = "resultado";
+
+      if (valor < 100) {
+        mensaje.innerText = ' Antes de los rangos (valor = ' + valor + ')';
+        mensaje.classList.add('antes-rangos');
+        console.log('clasificarValor(): valor = ' + valor + ' → Antes de los rangos');
+      } else if (valor >= 100 && valor <= 300) {
+        mensaje.innerText = ' Primer rango (100–300): valor = ' + valor;
+        mensaje.classList.add('primer-rango');
+        console.log('clasificarValor(): valor = ' + valor + ' → Primer rango');
+      } else if (valor > 300 && valor < 500) {
+        mensaje.innerText = ' Entre los rangos (301–499): valor = ' + valor;
+        mensaje.classList.add('entre-rangos');
+        console.log('clasificarValor(): valor = ' + valor + ' → Entre los rangos');
+      } else if (valor >= 500 && valor <= 800) {
+        mensaje.innerText = ' Segundo rango (500–800): valor = ' + valor;
+        mensaje.classList.add('segundo-rango');
+        console.log('clasificarValor(): valor = ' + valor + ' → Segundo rango');
+      } else {
+        mensaje.innerText = ' Supera los rangos (valor = ' + valor + ')';
+        mensaje.classList.add('supera-rangos');
+        console.log('clasificarValor(): valor = ' + valor + ' → Supera los rangos');
+      }
+    }
+
+    
+    let btnEjecutar = document.getElementById('btnEjecutar');
+    btnEjecutar.onclick = clasificarValor;
+
+    
+    console.log('Script cargado: botón #btnEjecutar enlazado a clasificarValor; listo para ejecutar.');
+  </script>
+</body>
+</html>
